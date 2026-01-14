@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeHero() {
+  const navigate = useNavigate();
+
   return (
     <section id="features" className="relative">
-
       {/* Background shapes */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -left-28 -top-24 h-72 w-72 rounded-full bg-purple-600/30 blur-3xl" />
@@ -13,6 +14,7 @@ export default function HomeHero() {
 
       <div className="max-w-6xl mx-auto px-5 py-16 md:py-20 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          
           {/* Left */}
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm">
@@ -34,13 +36,20 @@ export default function HomeHero() {
               live tracking and parent approval for peace of mind.
             </p>
 
-            <div className="mt-7 flex items-center gap-4">
-              <button className="px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-blue-500 font-medium hover:opacity-90 transition">
-                Get started now
+            {/* ✅ DASHBOARD BUTTONS (WORKING) */}
+            <div className="mt-7 flex flex-wrap items-center gap-4">
+              <button
+                onClick={() => navigate("/parent-dashboard")}
+                className="px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 font-medium hover:opacity-90 transition"
+              >
+                Parent dashboard
               </button>
 
-              <button className="px-6 py-3 rounded-full border border-white/15 text-white/85 hover:bg-white/10 transition">
-                See how it works
+              <button
+                onClick={() => navigate("/child-dashboard")}
+                className="px-6 py-3 rounded-full border border-white/15 text-white/85 hover:bg-white/10 transition"
+              >
+                Child dashboard
               </button>
             </div>
 
@@ -72,7 +81,9 @@ export default function HomeHero() {
                   Available balance
                 </div>
 
-                <div className="mt-2 text-3xl font-semibold">₹ 2,500.00</div>
+                <div className="mt-2 text-3xl font-semibold">
+                  ₹ 2,500.00
+                </div>
 
                 <div className="mt-6 text-white/50 text-sm flex items-center justify-between">
                   <span>Next reload from Parent • Today</span>
@@ -98,6 +109,7 @@ export default function HomeHero() {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
