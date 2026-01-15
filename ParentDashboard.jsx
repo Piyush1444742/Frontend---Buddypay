@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Navbar from "../components/Navbar";
+// Navbar intentionally removed
 
 export default function ParentDashboard() {
   const navigate = useNavigate();
@@ -8,8 +8,6 @@ export default function ParentDashboard() {
 
   return (
     <div className="min-h-screen bg-[#070B1E] text-white">
-      <Navbar />
-
       <div className="max-w-6xl mx-auto px-5 py-16">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -21,19 +19,17 @@ export default function ParentDashboard() {
           </div>
 
           <button
-            onClick={() => navigate("/")}
-            className="px-5 py-2 rounded-full border border-white/15 hover:bg-white/10 transition"
-          >
-            Logout
-          </button>
+  onClick={() => navigate("/")}
+  className="px-5 py-2 rounded-full bg-gradient-to-r from-rose-500 to-red-600 text-white hover:opacity-90 transition"
+>
+  Logout
+</button>
+
         </div>
 
         {/* 🌟 WALLET + NOTIFICATIONS */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          {/* 💳 WALLET BALANCE */}
           <div className="relative rounded-3xl bg-white/5 backdrop-blur border border-white/10 p-6 overflow-hidden">
-            {/* Glow */}
             <div className="absolute -top-16 -right-16 h-48 w-48 bg-purple-500/30 blur-3xl rounded-full" />
 
             <div className="relative">
@@ -80,7 +76,6 @@ export default function ParentDashboard() {
             </h3>
 
             <div className="space-y-4">
-              {/* Notification item */}
               <div className="flex items-start gap-4 p-4 rounded-2xl bg-black/30 border border-white/5">
                 <span className="h-3 w-3 mt-2 rounded-full bg-yellow-400" />
                 <div>
