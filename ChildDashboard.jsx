@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+// Navbar intentionally removed
 
 export default function ChildDashboard() {
   const navigate = useNavigate();
@@ -24,8 +24,6 @@ export default function ChildDashboard() {
 
   return (
     <div className="min-h-screen bg-[#070B1E] text-white">
-      <Navbar />
-
       <div className="max-w-6xl mx-auto px-5 py-16">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -37,11 +35,12 @@ export default function ChildDashboard() {
           </div>
 
           <button
-            onClick={() => navigate("/")}
-            className="px-5 py-2 rounded-full border border-white/15 hover:bg-white/10 transition"
-          >
-            Logout
-          </button>
+  onClick={() => navigate("/")}
+  className="px-5 py-2 rounded-full bg-gradient-to-r from-rose-500 to-red-600 text-white hover:opacity-90 transition"
+>
+  Logout
+</button>
+
         </div>
 
         {/* 🎉 SUPER CREATIVE SCAN QR */}
@@ -49,13 +48,11 @@ export default function ChildDashboard() {
           onClick={() => setShowQR(true)}
           className="mt-12 relative cursor-pointer"
         >
-          {/* Glow */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="h-72 w-72 rounded-full bg-purple-500/30 blur-3xl animate-pulse" />
           </div>
 
           <div className="relative rounded-3xl bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 p-10 overflow-hidden">
-            {/* Decorative dots */}
             <div className="absolute top-6 right-6 grid grid-cols-3 gap-2 opacity-30">
               {[...Array(9)].map((_, i) => (
                 <div key={i} className="h-2 w-2 bg-white rounded-sm" />
@@ -64,9 +61,7 @@ export default function ChildDashboard() {
 
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div>
-                <h2 className="text-4xl font-bold">
-                  Scan QR
-                </h2>
+                <h2 className="text-4xl font-bold">Scan QR</h2>
                 <p className="mt-3 text-white/90 max-w-sm">
                   Scan any QR to send money instantly.
                   Fast, safe and parent-approved.
@@ -77,22 +72,17 @@ export default function ChildDashboard() {
                 </div>
               </div>
 
-              {/* Fake QR illustration */}
               <div className="relative">
                 <div className="h-40 w-40 rounded-2xl bg-white p-4 grid grid-cols-5 gap-2">
                   {[...Array(25)].map((_, i) => (
                     <div
                       key={i}
                       className={`${
-                        Math.random() > 0.5
-                          ? "bg-black"
-                          : "bg-transparent"
+                        Math.random() > 0.5 ? "bg-black" : "bg-transparent"
                       } rounded-sm`}
                     />
                   ))}
                 </div>
-
-                {/* Camera frame */}
                 <div className="absolute inset-0 border-4 border-white/70 rounded-2xl" />
               </div>
             </div>
